@@ -2,10 +2,12 @@ import * as React from 'react';
 import {View, 
     Text, 
     ImageBackground,
-    StyleSheet,
     TextInput,
     ScrollView,
+    Image,
 } from 'react-native';
+import { Entypo, Feather  } from '@expo/vector-icons';
+import styles from '../assetsStyle/style';
 // import Icon from 'react-native-paper/lib/typescript/src/components/Icon';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -22,22 +24,24 @@ export default function DetailsScreen({navigation}) {
                     style={styles.input}/>
                 <ScrollView style={styles.scrollContainer}>
                     <View style={{display: 'flex', flexDirection: 'column'}}>
-                        <View style={styles.card} >
-                            <View style={{display: 'flex', flexDirection: 'row'}}>
-                                <View style={styles.nigth}>
-                                    <View style={{display: 'flex', flexDirection: 'row'}}>
-                                        <Ionicons name="sunny" size={40} color="#F2DE11" />
-                                        <Text style={{fontSize: 35, marginStart: 10}}>8°C</Text>
-                                    </View>
+                        {/* map */}
+                        <View style={[styles.card, styles.between]} >
+                            <View style={[styles.conlumn, styles.countryInfo]}>
+                                <Text style={styles.cityName}>Samarqand</Text>
+                                <Text style={styles.country}>UZB</Text>
+                            </View>
+                            <Text style={styles.temp}>8°C</Text>
+                            <View style={styles.conlumn}>
+                                <View style={styles.row}>
+                                    <Feather name="wind" size={24} color="#7AA7F0" />
+                                    <Text style={{color: '#fff' , fontSize: 15}}>17km/h</Text>
                                 </View>
-                                <View style={styles.light}>
-                                    <View style={{display: 'flex', flexDirection: 'row'}}>
-                                        <Ionicons name="moon-sharp" size={40} color="#000000" />
-                                        <Text style={{fontSize: 35, marginStart: 10}}>8°C</Text>
-                                    </View>
+                                <View style={styles.row}>
+                                    <Entypo name="drop" size={24} color="#7AA7F0" />
+                                    <Text style={{color: '#fff' , fontSize: 15}}>17%</Text>
                                 </View>
                             </View>
-                            <Text style={styles.cityName}>Samarqand</Text>
+                            <Image source={{uri:`http://openweathermap.org/img/w/${'10d'}.png`}} style={{width: 50, height: 50}} />
                         </View>
                     </View>
                 </ScrollView>
@@ -47,72 +51,3 @@ export default function DetailsScreen({navigation}) {
     
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#00004C',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    image: {
-        flex: 1,
-        flexDirection: "column",
-        width: "100%",
-    },
-    headerText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        top: 0
-    },
-    input: {
-        height: 45,
-        margin: 20,
-        borderRadius: 30,
-        borderTopEndRadius: 30,
-        borderTopStartRadius: 30,
-        borderColor: '#fff',
-        borderWidth: 3,
-        padding: 10,
-        paddingStart: 20,
-        color: '#fff',
-        fontSize: 20,
-    },
-    scrollContainer: {
-        paddingHorizontal: 2,
-        paddingVertical: 2,
-    },
-    card : {
-        height: 130,
-        borderRadius: 20,
-        margin: 20,
-        backgroundColor: '#3285DE',
-        // backgroundColor: '#1C65BA',
-        color: '#ffffff',
-        padding: 15,
-        marginBottom: 5,
-        display: 'flex',
-        flexDirection: 'column'
-
-    },
-    nigth: {
-        width: '50%',
-        padding: 3,
-        borderColor: '#000',
-        borderWidth: 1,
-        marginEnd: 5,
-        borderRadius: 8
-    },
-    light: {
-        width: '50%',
-        padding: 3,
-        borderColor: '#000',
-        borderWidth: 1,
-        marginStart: 5,
-        borderRadius: 8
-    },
-    cityName: {
-        textAlign: 'center',
-        fontSize: 20,
-        marginTop: 10
-    }
-})
