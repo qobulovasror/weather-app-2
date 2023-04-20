@@ -7,7 +7,7 @@ import {View,
     Image,
 } from 'react-native';
 import { Entypo, Feather  } from '@expo/vector-icons';
-import styles from '../assetsStyle/style';
+import {styles} from '../assetsStyle/style';
 // import Icon from 'react-native-paper/lib/typescript/src/components/Icon';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -18,10 +18,10 @@ export default function DetailsScreen({navigation}) {
                 source={require('../../assets/cityBG2.png')}
                 style={styles.image}
             >
-                <TextInput
+                {/* <TextInput
                     placeholderTextColor="#FFF"
                     placeholder='Search for city'
-                    style={styles.input}/>
+                    style={styles.input}/> */}
                 <ScrollView style={styles.scrollContainer}>
                     <View style={{display: 'flex', flexDirection: 'column'}}>
                         {/* map */}
@@ -33,11 +33,11 @@ export default function DetailsScreen({navigation}) {
                             <Text style={styles.temp}>8°C</Text>
                             <View style={styles.conlumn}>
                                 <View style={styles.row}>
-                                    <Feather name="wind" size={24} color="#7AA7F0" />
+                                    <Feather name="wind" size={22} color="#7AA7F0" />
                                     <Text style={{color: '#fff' , fontSize: 15}}>17km/h</Text>
                                 </View>
                                 <View style={styles.row}>
-                                    <Entypo name="drop" size={24} color="#7AA7F0" />
+                                    <Entypo name="drop" size={22} color="#7AA7F0" />
                                     <Text style={{color: '#fff' , fontSize: 15}}>17%</Text>
                                 </View>
                             </View>

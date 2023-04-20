@@ -11,7 +11,7 @@ import SettingsScreen from './screens/SettingScreen';
 //Screen names
 const homeName = "Home";
 const detailsName = "Cities or Provinces";
-const settingsName = "Info  ";
+const settingsName = "Search";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +32,7 @@ function MainContainer() {
               iconName = focused ? 'list' : 'list-outline';
 
             } else if (rn === settingsName) {
-              iconName = focused ? 'information-circle' : 'information-circle-outline';
+              iconName = focused ? 'search' : 'search-outline';
             }
 
             // You can return any component that you like here!
