@@ -116,7 +116,46 @@ const searchStyle = StyleSheet.create({
     marginBottom: 8, 
     borderBottomColor: '#242B45', 
     borderBottomWidth: 1, 
-    paddingBottom: 2}
+    paddingBottom: 2
+  },
+  description: {
+    padding: 5,
+    backgroundColor: "#1E9AFF",
+    color: '#fff',
+    borderRadius: 10,
+    fontSize: 20,
+    marginTop: 20, 
+    marginStart: 15,
+    textAlign: 'center'
+  }
+});
+const homeStyle = StyleSheet.create({
+  cityName: {
+    fontSize: 50, 
+    color: '#fff', 
+    textAlign: 'center',
+    margin: 20
+  },
+  date: {
+    fontSize: 20, 
+    color: '#fff',
+    textAlign: 'center',
+  },
+  temp: {
+    fontSize: 100, 
+    color: '#fff',
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: 50, 
+    color: '#fff',
+    textAlign: 'center',
+  },
+  loc: {
+    fontSize: 20, 
+    color: '#fff',
+    textAlign: 'center',
+  }
 });
 
-export {styles, searchStyle}
+export {styles, searchStyle, homeStyle}

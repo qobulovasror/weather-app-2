@@ -4,12 +4,10 @@ import {
     Text,
     ImageBackground,
     TextInput,
-    ScrollView,
     Image,
 } from "react-native";
 import { Entypo, Feather, FontAwesome, AntDesign  } from '@expo/vector-icons';
 import {styles, searchStyle} from "../assetsStyle/style";
-// import searchStyle from "../assetsStyle/style";
 
 export default function SettingScreen({ navigation }) {
   return (
@@ -40,7 +38,10 @@ export default function SettingScreen({ navigation }) {
                     style={{ width: 120, height: 120 }}
                 />
               </View>
-              <View style={[styles.row, styles.conlumn, { margin: 15}]}>
+              <View>
+                <Text style={searchStyle.description}>clear sky</Text>
+              </View>
+              <View style={[styles.row, styles.conlumn, { marginTop: 20, marginBottom: 20}]}>
                 <View style={[styles.row, styles.between, searchStyle.infoList]}>
                     <Text style={{color: '#fff', fontSize: 20}}>Рumidity </Text>
                     <View style={styles.row}>
@@ -89,19 +90,7 @@ export default function SettingScreen({ navigation }) {
                     </View>
                 </View>
               </View>
-
-              
-              {/* <View style={styles.conlumn}>
-                <View style={styles.row}>
-                  <Feather name="wind" size={22} color="#7AA7F0" />
-                  <Text style={{ color: "#fff", fontSize: 15 }}>17km/h</Text>
-                </View>
-                <View style={styles.row}>
-                  <Entypo name="drop" size={22} color="#7AA7F0" />
-                  <Text style={{ color: "#fff", fontSize: 15 }}>17%</Text>
-                </View>
-              </View> */}
-              
+        
 
             </View>
         </View>
