@@ -77,6 +77,18 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "#fff",
   },
+  tCenter: {
+    textAlign: 'center',
+  },
+  btn: {
+    backgroundColor: '#1A50B5',
+    padding: 10,
+    borderRadius: 10,
+    color: '#fff'
+  },
+  absolute: {
+    position: 'absolute'
+  }
 });
 
 const searchStyle = StyleSheet.create({
@@ -104,8 +116,7 @@ const searchStyle = StyleSheet.create({
     color: "#fff",
   },
   info: {
-    padding: 5,
-    paddingEnd: 5,
+    padding: 10,
     borderRadius: 10,
     backgroundColor: "#3DA7FF",
     color: '#fff',
@@ -113,10 +124,11 @@ const searchStyle = StyleSheet.create({
     alignSelf: 'flex-start'
   },
   infoList: {
-    marginBottom: 8, 
+    marginBottom: 15, 
     borderBottomColor: '#242B45', 
     borderBottomWidth: 1, 
-    paddingBottom: 2
+    paddingBottom: 2,
+    marginEnd: 15
   },
   description: {
     padding: 5,
@@ -125,16 +137,17 @@ const searchStyle = StyleSheet.create({
     borderRadius: 10,
     fontSize: 20,
     marginTop: 20, 
-    marginStart: 15,
+    margin: 10,
     textAlign: 'center'
   }
 });
 const homeStyle = StyleSheet.create({
   cityName: {
-    fontSize: 50, 
+    fontSize: 45, 
     color: '#fff', 
     textAlign: 'center',
-    margin: 20
+    marginTop: 0,
+    marginBottom: 3,
   },
   date: {
     fontSize: 20, 
@@ -152,9 +165,27 @@ const homeStyle = StyleSheet.create({
     textAlign: 'center',
   },
   loc: {
-    fontSize: 20, 
-    color: '#fff',
+    fontSize: 15, 
+    color: '#0DC700',
     textAlign: 'center',
+  },
+  miniCard: {
+    width: '25%',
+    padding: 10,
+    // backgroundColor: '#2132F6C4',
+    backgroundColor: '#42477ED0',
+    borderRadius: 20,
+    paddingBottom: 15,
+    paddingTop: 15
+  },
+  miniCardText: {
+    color: '#fff',
+    textAlign: 'center'
+  },
+  reload: {
+    backgroundColor: '#1A50B5',
+    padding: 10,
+    borderRadius: 10,
   }
 });
 
