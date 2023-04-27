@@ -3,7 +3,6 @@ import {
   View,
   Text,
   ImageBackground,
-  TextInput,
   ScrollView,
   Image,
 } from "react-native";
@@ -11,45 +10,7 @@ import { Entypo, Feather } from "@expo/vector-icons";
 import { apiKeyCities, CITIES } from "../config/config";
 import { styles } from "../assetsStyle/style";
 
-
-
-
 export default function DetailsScreen({ navigation }) {
-//   const [citiesData, setCitiesData] = useState([]);
-//   const [load, setLoad] = useState(false);
-//   const [errorMsg, setErrorMsg] = useState("");
-//   async function loadDataHandler() {
-//     setLoad(true);
-//     setCitiesData([]);
-//     const data = []
-//     setErrorMsg("");
-//     cities.forEach(async (city) => {
-//       await fetch(
-//         `https://api.openweathermap.org/data/2.5/weather?q=${city.toString()}&units=metric&appid=${
-//           api.key
-//         }`
-//       )
-//         .then((response) => response.json())
-//         .then((res) => {
-//           if (res.cod == "404") {
-//             throw Error("404");
-//           } else {
-//             data = [...data, res]
-//             // const {name, sys, main, weather, wind} = res;
-//           }
-//         })
-//         .catch((err) => {
-//           setErrorMsg(err);
-//         });
-//     });
-//     setCitiesData(data);
-//     setLoad(false)
-//   }
-
-//   useEffect(() => {
-//     loadDataHandler();
-//   }, []);
-
 const [weatherData, setWeatherData] = useState([]); 
 const [errorMsg, setErrorMsg] = useState('')
 useEffect(() => {
@@ -125,16 +86,6 @@ useEffect(() => {
           </View>
         </ScrollView>
       </ImageBackground>
-    {
-        // weatherData && 
-        // weatherData.map(item=>(
-        //     <Text style={{color: '#fff', fontSize: 20}}>
-        //         {item.name}  ----- {item.main.temp}  
-        //     </Text>
-        // ))
-    }
-
-
     </View>
   );
 }

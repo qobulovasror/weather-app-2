@@ -36,7 +36,7 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow $(weather) to use your location."
+          "locationAlwaysAndWhenInUsePermission": "Allow app to use your location."
         }
       ]
     ],

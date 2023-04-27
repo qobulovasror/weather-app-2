@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import { 
     View, 
     Text,
@@ -76,7 +76,6 @@ export default function SettingScreen({ navigation }) {
           placeholderTextColor="#FFF"
           placeholder="Search for city"
           style={styles.input}
-          // placeholderTextColor="#777"
           onChangeText={text=>setInput(text)}
           value={input}
           onSubmitEditing={submitHandler}

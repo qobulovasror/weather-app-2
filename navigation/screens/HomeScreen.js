@@ -67,23 +67,6 @@ export default function HomeScreen({ navigation }) {
     }
   }
 
-  const getDate = () => {
-    const today = new Date();
-    return today.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }); // Saturday, September 17, 2016
-  };
-  const getTempToSerciy = (kelvin) => {
-    return (
-      Math.floor(kelvin - 273.15) +
-      "." +
-      (Math.floor(kelvin - 273.15) - kelvin) * 10
-    );
-  };
-
   const reload = () => {
     if (!checkPermission()) {
       setErrorMsg("Error getting location");
@@ -113,7 +96,6 @@ export default function HomeScreen({ navigation }) {
             size={25} 
             color="#fff"/>
         </TouchableOpacity>
-        <Text>{text}</Text>
         {!errorMsg && (
           <View style={styles.conlumn}>
             <Text style={[styles.tCenter, { fontSize: 22, color: "#fff" }]}>
@@ -131,7 +113,7 @@ export default function HomeScreen({ navigation }) {
         {res && (
           <View>
             <Text style={homeStyle.cityName}>{res?.name}</Text>
-            <Text style={homeStyle.date}>{getDate()}</Text>
+            <Text style={homeStyle.date}>{new Date().toLocaleDateString()}</Text>
             <Text style={homeStyle.temp}>
               {Math.floor(res?.main?.temp - 273.15)}°C
             </Text>
@@ -189,44 +171,3 @@ export default function HomeScreen({ navigation }) {
     </ImageBackground>
   );
 }
-
-// export default function HomeScreen({ navigation }) {
-//   const [location, setLocation]  = useState(null);
-//   const [errorMsg, setErrorMsg] = useState(null);
-//   const [text, setText] = useState('Waiting..');
-
-//   useEffect(() => {
-//     (async () => {
-
-//       let { status } = await Location.requestForegroundPermissionsAsync();
-//       if (status !== 'granted') {
-//         setErrorMsg('Permission to access location was denied');
-//         return;
-//       }
-
-//       let location = await Location.getCurrentPositionAsync({});
-//       setLocation(location);
-//     })();
-//   }, []);
-
-//   if (errorMsg) {
-//     text = errorMsg;
-//   } else if (location) {
-//     text = JSON.stringify(location);
-//   }
-
-//     if (errorMsg) {
-//       setText(errorMsg)
-//     } else if (location) {
-//       setText(JSON.stringify(location));
-//     }
-
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text
-//         style={{ fontSize: 26, fontWeight: "bold" }}
-//         >{text}</Text>
-//       <Text>{errorMsg}</Text>
-//     </View>
-//   );
-// }
