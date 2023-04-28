@@ -1,93 +1,93 @@
 import { View, Text, Button, ImageBackground, TouchableOpacity } from "react-native";
-import React, { useState, useEffect } from "react";
-import * as Location from "expo-location";
-import { Entypo, Feather, FontAwesome, AntDesign } from "@expo/vector-icons";
+import { useState, useEffect } from "react";
+// import * as Location from "expo-location";
+// import { Entypo, Feather, FontAwesome, AntDesign } from "@expo/vector-icons";
 import { styles, homeStyle } from "../assetsStyle/style";
-import { api } from "../config/config";
+// import { api } from "../config/config";
 
 export default function HomeScreen({ navigation }) {
-  const [location, setLocation] = useState({ latitude: "", longitude: "" });
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [res, setRes] = useState("");
-  const [errStatus, setErrStatus] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
+  // const [location, setLocation] = useState({ latitude: "", longitude: "" });
+  // const [errorMsg, setErrorMsg] = useState(null);
+  // const [res, setRes] = useState("");
+  // const [errStatus, setErrStatus] = useState(false);
+  // const [errMsg, setErrMsg] = useState("");
 
-  const checkPermission = async () => {
-    const hasPermission = await Location.requestForegroundPermissionsAsync();
-    if (hasPermission.status === "granted") {
-      const permission = await askPermission();
-      return permission;
-    }
-    return true;
-  };
-  const askPermission = async () => {
-    const permission = await Location.getForegroundPermissionsAsync();
-    return permission.status === "granted";
-  };
+  // const checkPermission = async () => {
+  //   const hasPermission = await Location.requestForegroundPermissionsAsync();
+  //   if (hasPermission.status === "granted") {
+  //     const permission = await askPermission();
+  //     return permission;
+  //   }
+  //   return true;
+  // };
+  // const askPermission = async () => {
+  //   const permission = await Location.getForegroundPermissionsAsync();
+  //   return permission.status === "granted";
+  // };
 
-  const getUserLocation = async () => {
-    const userLocation = await Location.getCurrentPositionAsync();
-    setLocation({
-      latitude: userLocation.coords.latitude,
-      longitude: userLocation.coords.longitude,
-    });
-    if (userLocation.coords.latitude && userLocation.coords.longitude)
-      submitHandler();
-  };
+  // const getUserLocation = async () => {
+  //   const userLocation = await Location.getCurrentPositionAsync();
+  //   setLocation({
+  //     latitude: userLocation.coords.latitude,
+  //     longitude: userLocation.coords.longitude,
+  //   });
+  //   if (userLocation.coords.latitude && userLocation.coords.longitude)
+  //     submitHandler();
+  // };
 
-  async function submitHandler() {
-    try {
-      setRes("");
-      setErrStatus(false);
-      setErrMsg("");
-      await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${api.key}`
-      )
-        .then((response) => response.json())
-        .then((res) => {
-          setRes(res);
-          if (res.cod == "404") {
-            setErrStatus(true);
-            setErrMsg(res.message);
-          }
-        })
-        .catch((err) => {
-          setErrStatus(true);
-          setErrMsg(err);
-          setRes("");
-        });
-    } catch (err) {
-      setErrStatus(true);
-      setErrMsg(err);
-    } finally {
-      if (errStatus) {
-        setRes();
-        if (!errMsg) setErrMsg("Error");
-      }
-    }
-  }
+  // async function submitHandler() {
+  //   try {
+  //     setRes("");
+  //     setErrStatus(false);
+  //     setErrMsg("");
+  //     await fetch(
+  //       `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${api.key}`
+  //     )
+  //       .then((response) => response.json())
+  //       .then((res) => {
+  //         setRes(res);
+  //         if (res.cod == "404") {
+  //           setErrStatus(true);
+  //           setErrMsg(res.message);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         setErrStatus(true);
+  //         setErrMsg(err);
+  //         setRes("");
+  //       });
+  //   } catch (err) {
+  //     setErrStatus(true);
+  //     setErrMsg(err);
+  //   } finally {
+  //     if (errStatus) {
+  //       setRes();
+  //       if (!errMsg) setErrMsg("Error");
+  //     }
+  //   }
+  // }
 
-  const reload = () => {
-    if (!checkPermission()) {
-      setErrorMsg("Error getting location");
-    } else {
-      getUserLocation();
-    }
-  };
-  useEffect(() => {
-    if (!checkPermission()) {
-      setErrorMsg("Error getting location");
-    } else {
-      getUserLocation();
-    }
-  }, []);
+  // const reload = () => {
+  //   if (!checkPermission()) {
+  //     setErrorMsg("Error getting location");
+  //   } else {
+  //     getUserLocation();
+  //   }
+  // };
+  // useEffect(() => {
+  //   if (!checkPermission()) {
+  //     setErrorMsg("Error getting location");
+  //   } else {
+  //     getUserLocation();
+  //   }
+  // }, []);
 
   return (
     <ImageBackground
       source={require("../../assets/homeBg2.png")}
       style={styles.image}
     >
-      <View style={[styles.conlumn, { marginTop: 10 }]}>
+      {/* <View style={[styles.conlumn, { marginTop: 10 }]}>
         <TouchableOpacity 
           onPress={reload}
           style={[styles.absolute, homeStyle.reload, { top: 0, right: '5%',}]}>
@@ -167,7 +167,7 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
         )}
-      </View>
+      </View> */}
     </ImageBackground>
   );
 }

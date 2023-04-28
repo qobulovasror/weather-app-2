@@ -6,32 +6,30 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import { Entypo, Feather } from "@expo/vector-icons";
-import { apiKeyCities, CITIES } from "../config/config";
+// import { Entypo, Feather } from "@expo/vector-icons";
+// import { apiKeyCities, CITIES } from "../config/config";
 import { styles } from "../assetsStyle/style";
 
 export default function DetailsScreen({ navigation }) {
-const [weatherData, setWeatherData] = useState([]); 
-const [errorMsg, setErrorMsg] = useState('')
-useEffect(() => {
-    const fetchWeatherData = async () => {
-      try {
-        const cityIds = Object.values(CITIES).join(',');
-        await fetch(`https://api.openweathermap.org/data/2.5/group?id=${cityIds}&units=metric&appid=${apiKeyCities}`)
-            .then((response) => response.json())
-            .then((res) => {
-                console.log(res);
-                if(res.list)
-                    setWeatherData(res.list)
-            })
-      } catch (error) {
-        setErrorMsg(error)
-        console.error(error);
-      }
-    };
+// const [weatherData, setWeatherData] = useState([]); 
+// const [errorMsg, setErrorMsg] = useState('')
+// useEffect(() => {
+//     const fetchWeatherData = async () => {
+//       try {
+//         const cityIds = Object.values(CITIES).join(',');
+//         await fetch(`https://api.openweathermap.org/data/2.5/group?id=${cityIds}&units=metric&appid=${apiKeyCities}`)
+//             .then((response) => response.json())
+//             .then((res) => {
+//                 if(res.list)
+//                     setWeatherData(res.list)
+//             })
+//       } catch (error) {
+//         setErrorMsg(error)
+//       }
+//     };
 
-    fetchWeatherData();
-  }, []);
+//     fetchWeatherData();
+//   }, []);
 
   return (
     
@@ -40,7 +38,7 @@ useEffect(() => {
         source={require("../../assets/cityBG2.png")}
         style={styles.image}
       >
-        <ScrollView style={styles.scrollContainer}>
+        {/* <ScrollView style={styles.scrollContainer}>
           <View style={{ display: "flex", flexDirection: "column" }}>
             {!weatherData && (
               <Text
@@ -84,7 +82,7 @@ useEffect(() => {
                 </View>
               ))}
           </View>
-        </ScrollView>
+        </ScrollView> */}
       </ImageBackground>
     </View>
   );

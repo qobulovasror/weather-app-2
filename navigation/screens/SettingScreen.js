@@ -7,64 +7,64 @@ import {
     Image,
     ActivityIndicator
 } from "react-native";
-import { api } from "../config/config";
-import { Entypo, Feather, FontAwesome, AntDesign  } from '@expo/vector-icons';
+// import { api } from "../config/config";
+// import { Entypo, Feather, FontAwesome, AntDesign  } from '@expo/vector-icons';
 import {styles, searchStyle} from "../assetsStyle/style";
 
 export default function SettingScreen({ navigation }) {
-  const [input, setInput] = useState("");
-  const [load, setLoad] = useState(false);
-  const [res, setRes] = useState("");
-  const [errStatus, setErrStatus] = useState(false);
-  const [errMsg, setErrMsg] = useState("");
+  // const [input, setInput] = useState("");
+  // const [load, setLoad] = useState(false);
+  // const [res, setRes] = useState("");
+  // const [errStatus, setErrStatus] = useState(false);
+  // const [errMsg, setErrMsg] = useState("");
 
-  async function submitHandler() {
-    let inputReq = input.trim()
-    if(!inputReq || inputReq.length<3) return;
-    try {
-      setLoad(true)
-      setRes("")
-      setErrStatus(false)
-      setErrMsg("")
-      await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputReq}&units=metric&appid=${api.key}`)
-      .then((response) => response.json())
-      .then(res=>{
-        setRes(res)
-        if(res.cod=='404'){
-          setErrStatus(true)
-          setErrMsg(res.message) 
-        }
-      })
-      .catch(err=>{
-        setErrStatus(true)
-        setErrMsg(err)  
-        setRes("")
-      })
-    }
-    catch(err) {  
-      setErrStatus(true)
-      setErrMsg(err)   
-    }
-    finally {
-      setLoad(false);
-      setInput("")
-      if(errStatus){
-        setRes()
-        if(!errMsg)
-          setErrMsg("Error") 
-      }
-    }
-  }
+  // async function submitHandler() {
+  //   let inputReq = input.trim()
+  //   if(!inputReq || inputReq.length<3) return;
+  //   try {
+  //     setLoad(true)
+  //     setRes("")
+  //     setErrStatus(false)
+  //     setErrMsg("")
+  //     await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputReq}&units=metric&appid=${api.key}`)
+  //     .then((response) => response.json())
+  //     .then(res=>{
+  //       setRes(res)
+  //       if(res.cod=='404'){
+  //         setErrStatus(true)
+  //         setErrMsg(res.message) 
+  //       }
+  //     })
+  //     .catch(err=>{
+  //       setErrStatus(true)
+  //       setErrMsg(err)  
+  //       setRes("")
+  //     })
+  //   }
+  //   catch(err) {  
+  //     setErrStatus(true)
+  //     setErrMsg(err)   
+  //   }
+  //   finally {
+  //     setLoad(false);
+  //     setInput("")
+  //     if(errStatus){
+  //       setRes()
+  //       if(!errMsg)
+  //         setErrMsg("Error") 
+  //     }
+  //   }
+  // }
 
-  const getSunSet = (type)=>{
-    if(res.sys.sunrise && res.sys.sunset){
-      if(type==='set'){
-        return new Date(res.sys.sunset*1000).getHours()+ ":"+ new Date(res.sys.sunset*1000).getHours()
-      }else{
-        return new Date(res.sys.sunrise*1000).getHours()+ ":"+ new Date(res.sys.sunrise*1000).getHours()
-      }
-    }
-  }
+  // const getSunSet = (type)=>{
+  //   if(res.sys.sunrise && res.sys.sunset){
+  //     if(type==='set'){
+  //       return new Date(res.sys.sunset*1000).getHours()+ ":"+ new Date(res.sys.sunset*1000).getHours()
+  //     }else{
+  //       return new Date(res.sys.sunrise*1000).getHours()+ ":"+ new Date(res.sys.sunrise*1000).getHours()
+  //     }
+  //   }
+  // }
 
   return (
     <View style={styles.container}>
@@ -72,7 +72,7 @@ export default function SettingScreen({ navigation }) {
         source={require('../../assets/searchBg.png')}
         style={styles.image}
       >
-        <TextInput
+        {/* <TextInput
           placeholderTextColor="#FFF"
           placeholder="Search for city"
           style={styles.input}
@@ -155,7 +155,7 @@ export default function SettingScreen({ navigation }) {
 
               </View>
           </View>
-        }
+        } */}
       </ImageBackground>
     </View>
   );
