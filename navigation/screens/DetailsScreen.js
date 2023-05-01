@@ -6,39 +6,36 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-// import { Entypo, Feather } from "@expo/vector-icons";
-// import { apiKeyCities, CITIES } from "../config/config";
+import { Entypo, Feather } from "@expo/vector-icons";
 import { styles } from "../assetsStyle/style";
 
 export default function DetailsScreen({ navigation }) {
-// const [weatherData, setWeatherData] = useState([]); 
-// const [errorMsg, setErrorMsg] = useState('')
-// useEffect(() => {
-//     const fetchWeatherData = async () => {
-//       try {
-//         const cityIds = Object.values(CITIES).join(',');
-//         await fetch(`https://api.openweathermap.org/data/2.5/group?id=${cityIds}&units=metric&appid=${apiKeyCities}`)
-//             .then((response) => response.json())
-//             .then((res) => {
-//                 if(res.list)
-//                     setWeatherData(res.list)
-//             })
-//       } catch (error) {
-//         setErrorMsg(error)
-//       }
-//     };
-
-//     fetchWeatherData();
-//   }, []);
+const [weatherData, setWeatherData] = useState([]); 
+const [errorMsg, setErrorMsg] = useState('')
+useEffect(() => {
+    const fetchWeatherData = async () => {
+      try {
+        const cityIds = Object.values(CITIES).join(',');
+        await fetch(`https://api.openweathermap.org/data/2.5/group?id=${cityIds}&units=metric&appid=${apiKeyCities}`)
+            .then((response) => response.json())
+            .then((res) => {
+                if(res.list)
+                    setWeatherData(res.list)
+            })
+      } catch (error) {
+        setErrorMsg(error)
+      }
+    };
+    fetchWeatherData();
+  }, []);
 
   return (
-    
     <View style={styles.container}>
       <ImageBackground
         source={require("../../assets/cityBG2.png")}
         style={styles.image}
       >
-        {/* <ScrollView style={styles.scrollContainer}>
+        <ScrollView style={styles.scrollContainer}>
           <View style={{ display: "flex", flexDirection: "column" }}>
             {!weatherData && (
               <Text
@@ -82,7 +79,7 @@ export default function DetailsScreen({ navigation }) {
                 </View>
               ))}
           </View>
-        </ScrollView> */}
+        </ScrollView>
       </ImageBackground>
     </View>
   );
@@ -90,4 +87,18 @@ export default function DetailsScreen({ navigation }) {
 
 
 
-
+const apiKeyCities = '66295b4d428809a2a4f5a1a9f366ac3f';
+const CITIES = {
+  'Andijan': '1484846',
+  'Bukhara': '1217662',
+  'Fergana': '1484845',
+  'Jizzakh': '1484844',
+  'Namangan': '1484842',
+  'Navoiy': '1513131',
+  'Qashqadaryo': '1114928',
+  'Samarqand': '1216265',
+  'Sirdaryo': '1512770',
+  'Surxondaryo': '1114926',
+  'Tashkent': '1512569',
+  'Xorazm': '1484843'
+};
