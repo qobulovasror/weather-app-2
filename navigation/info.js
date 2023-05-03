@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import { Feather, FontAwesome } from "@expo/vector-icons";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import { Feather, FontAwesome, Foundation } from "@expo/vector-icons";
 import { styles } from "./assetsStyle/style";
 
 function Info({ showInfo }) {
@@ -11,7 +11,7 @@ function Info({ showInfo }) {
           width: "85%",
           height: "70%",
           zIndex: 11,
-          padding: 20,
+          padding: 30,
           borderRadius: 15,
         },
       ]}
@@ -43,20 +43,50 @@ function Info({ showInfo }) {
           This program is a program that receives current weather information.
         </Text>
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>Programmer:</Text>
-        <Text style={{ fontSize: 20, marginStart: 5 }}>Qobulov Asror</Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Murojat uchun:</Text>
-        <Text style={{ fontSize: 20, marginStart: 5 }}>
+        <View style={[styles.row, { marginEnd: 10, marginStart: 10 }]}>
+          <FontAwesome
+            name="user"
+            size={25}
+            color="#000"
+            style={styles.tCenter}
+          />
+          <Text style={{ fontSize: 20, marginStart: 5 }}>Qobulov Asror</Text>
+        </View>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Contact me</Text>
+        <View style={[styles.row, { marginEnd: 10, marginStart: 10 }]}>
           <FontAwesome
             name="telegram"
             size={25}
-            color="#fff"
+            color="#000"
             style={styles.tCenter}
           />
-          @Qobulov_Asror
-        </Text>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          Telifon:+9989 93 358 28 27
-        </Text>
+          <Text style={{ fontSize: 20, marginStart: 5, marginEnd: 10 }}>
+            @Qobulov_Asror
+          </Text>
+        </View>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Phone:</Text>
+        <View style={[styles.row, { marginEnd: 10, marginStart: 10 }]}>
+          <Foundation
+            name="telephone"
+            size={25}
+            color="#000"
+            style={styles.tCenter}
+          />
+          <Text style={{ fontSize: 20, marginStart: 5 }}>
+            +9989 93 358 28 27
+          </Text>
+        </View>
+        <Image
+          source={require("../assets/qr_code.jpg")}
+          style={{
+            width: 180,
+            height: 180,
+            marginStart: 40,
+            borderColor: "#00f",
+            borderWidth: 1,
+            borderRadius: 5,
+          }}
+        />
       </View>
     </View>
   );
