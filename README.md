@@ -1,7 +1,7 @@
 # Weather App
-![image](https://github.com/qobulovasror/weather-app-2/assets/71517683/45d3c60d-61c2-4af6-9e3c-690e2b0ffbb7)  
-![image](https://github.com/qobulovasror/weather-app-2/assets/71517683/1000dca6-89a3-4afb-a410-2e74edfd3efa)  
-![image](https://github.com/qobulovasror/weather-app-2/assets/71517683/b19e6358-0583-481a-9df1-102d894885a3)
+<img src="https://github.com/qobulovasror/weather-app-2/assets/71517683/45d3c60d-61c2-4af6-9e3c-690e2b0ffbb7" width="300px">
+<img src="https://github.com/qobulovasror/weather-app-2/assets/71517683/1000dca6-89a3-4afb-a410-2e74edfd3efa" width="300px">
+<img src="https://github.com/qobulovasror/weather-app-2/assets/71517683/b19e6358-0583-481a-9df1-102d894885a3" width="300px">
 
 Welcome to the Weather App! This application allows users to check the current weather conditions for a specific location. With a clean and intuitive interface, users can quickly retrieve weather information and stay informed about the atmospheric conditions.
 
